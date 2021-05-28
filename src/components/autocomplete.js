@@ -6,6 +6,8 @@ import { hits, searchBox, configure } from 'instantsearch.js/es/widgets';
 
 // Autocomplete Template
 import autocompleteProductTemplate from '../templates/autocomplete-product';
+// import autocompleteSuggestionTemplate from '../templates/suggestion-template';
+
 
 /**
  * @class Autocomplete
@@ -19,6 +21,7 @@ class Autocomplete {
     this._registerClient();
     this._registerWidgets();
     this._startSearch();
+    this._pushData();
   }
 
   /**
@@ -28,16 +31,34 @@ class Autocomplete {
    */
   _registerClient() {
     this._searchClient = algoliasearch(
-      'VYLEWMPKEZ',
-      '8940a18fde155adf3f74b0912c267aa4'
+      'P5YMD8MJI4',
+      'ed49be94305500291e81b05cd38eb982'
     );
 
     this._searchInstance = instantsearch({
-      indexName: 'ecommerce-v2',
+      indexName: 'tam_assignment2',
       searchClient: this._searchClient,
     });
   }
 
+  /**
+   * @private
+   * Imports data from products.json to Algolia
+   * @return {void}
+   */
+  _pushData() {
+    const products = require('../../data/products.json');
+    const index = this._searchClient.initIndex('tam_assignment2');
+
+    index
+      .saveObjects(products, {
+        autoGenerateObjectIDIfNotExist: true,
+      })
+      .then(({ objectIDs }) => {
+        // eslint-disable-next-line no-console
+        console.log(objectIDs);
+      });
+  }
   /**
    * @private
    * Adds widgets to the Algolia instant search instance
