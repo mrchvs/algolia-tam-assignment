@@ -14,7 +14,7 @@ Marissa
 
 Hi Marissa,
 
-Thanks for your message and honest feedback - I will share it internally with our product team.
+Thanks for your message and transparent feedback - I will share it internally with our product team.
 
 If you are looking to clear or delete multiple indices, you can actually do it via the new dashboard. Simply
 
@@ -82,11 +82,9 @@ Hi Marc,
 
 Thanks for your message, and sorry to hear your website is not working.
 
-It seems that you’re trying to use Searchkit, which has not been defined in your code. You might want to import or require it at the beginning of your index.js file.
+It seems that you’re trying to use Searchkit, which has not been defined in your code. You might want to import or require it at the beginning of your index.js file. Please note that since Searchkit is not managed by Algolia, it would be best for you to contact them directly if you encounter any further issues.
 
-Searchkit is a library that’s not managed by Algolia, so if you encounter any further issues feel free to contact them directly.
-
-If you have any questions regarding your Algolia account, or would like to see how it compares, feel free to contact me, I’d be happy to help.
+In the meantime, if you have any questions regarding your Algolia account, or would like to see how it compares, feel free to contact me, I’d be happy to help.
 
 Kind regards,
 
