@@ -2,10 +2,14 @@ import algoliasearch from 'algoliasearch';
 import instantsearch from 'instantsearch.js';
 
 // Instant Search Widgets
-import { hits, searchBox, configure } from 'instantsearch.js/es/widgets';
+import { hits, searchBox, configure, index } from 'instantsearch.js/es/widgets';
 
 // Autocomplete Template
 import autocompleteProductTemplate from '../templates/autocomplete-product';
+
+const appId = 'P5YMD8MJI4';
+const apiKey = 'ed49be94305500291e81b05cd38eb982';
+const searchClient = algoliasearch(appId, apiKey);
 
 /**
  * @class Autocomplete
@@ -27,13 +31,10 @@ class Autocomplete {
    * @return {void}
    */
   _registerClient() {
-    this._searchClient = algoliasearch(
-      'VYLEWMPKEZ',
-      '8940a18fde155adf3f74b0912c267aa4'
-    );
+    this._searchClient = searchClient;
 
     this._searchInstance = instantsearch({
-      indexName: 'ecommerce-v2',
+      indexName: 'tam_assignment2',
       searchClient: this._searchClient,
     });
   }
@@ -46,15 +47,28 @@ class Autocomplete {
   _registerWidgets() {
     this._searchInstance.addWidgets([
       configure({
-        hitsPerPage: 3,
+        hitsPerPage: 5,
       }),
+
       searchBox({
         container: '#searchbox',
       }),
+      // Products
       hits({
         container: '#autocomplete-hits',
         templates: { item: autocompleteProductTemplate },
       }),
+      // Suggestions
+      index({ indexName: 'tam_assignment2_query_suggestions' }).addWidgets([
+        configure({ hitsPerPage: 3 }),
+        hits({
+          container: '#suggestions',
+          templates: {
+            item:
+              '<div>{{#helpers.highlight}}{ "attribute": "query" }{{/helpers.highlight}}</div>',
+          },
+        }),
+      ]),
     ]);
   }
 
