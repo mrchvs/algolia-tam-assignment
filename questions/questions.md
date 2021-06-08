@@ -14,7 +14,7 @@ Marissa
 
 Hi Marissa,
 
-Thanks for your message and honest feedback.
+Thanks for your message and honest feedback - I will share it internally with our product team.
 
 If you are looking to clear or delete multiple indices, you can actually do it via the new dashboard. Simply
 
@@ -23,6 +23,10 @@ If you are looking to clear or delete multiple indices, you can actually do it v
 - on the top right corner of your Index table: choose whether you’d like to ‘Clear indices’ or ‘Delete indices’
 
 Here’s a quick video to show you how it works:
+
+![alt text](https://github.com/mrchvs/algolia-tam-assignment/blob/ddf50be3670006bdbe14769861f43b8c04be2cf1/questions/clear:delete%20index.gif)
+
+Alternatively, you can also use Algolia's API to [clear](https://www.algolia.com/doc/api-reference/api-methods/clear-objects/) or [delete](https://www.algolia.com/doc/api-reference/api-methods/delete-index/) indexes.
 
 Let me know how it goes. If you have any other questions feel free to reach out, I’d be happy to help.
 
