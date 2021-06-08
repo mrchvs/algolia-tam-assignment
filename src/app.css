@@ -90,11 +90,12 @@
   width: 25%;
   max-width: 100px;
   margin-right: 20px;
+  max-height: 100px;
 }
 
 .autocomplete-product__image {
-  max-width: 100%;
-  height: auto;
+  max-width: 80%;
+  max-height: 100%;
 }
 
 .autocomplete-product__name {
